@@ -5,6 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+UserPost.destroy_all
+ListStock.destroy_all
+PostCategory.destroy_all
+PostStock.destroy_all
+User.destroy_all
+Post.destroy_all
+Category.destroy_all
+Stock.destroy_all
+List.destroy_all
+
 
 User.create(first_name: "Nathan", last_name: "Chung", username:123, password:"123", password_confirmation:"123", imageUrl:"https://media.giphy.com/media/l4Jz3a8jO92crUlWM/giphy.gif")
 
@@ -18,14 +28,14 @@ Category.create(name:"Healthcare")
 Stock.create(name:"Microsoft", symbol:"MSFT")
 Stock.create(name:"Apple", symbol:"AAPL")
 
-List.create(title:"Tech", user_id: 1, portfolio: true)
-List.create(title:"REITs", user_id:2)
+List.create!(title:"Tech", user_id: User.all.sample.id, portfolio: true)
+List.create(title:"REITs", user_id: User.all.sample.id)
 
 #### Join Tables####
 
-ListStock.create(list_id: 1, stock_id:1)
-UserPost.create(user_id:1, post_id:1)
-PostCategory.create(post_id:1, category_id:1)
-PostStock.create(stock_id:1, post_id:1)
+ListStock.create(list_id: List.all.sample.id, stock_id:Stock.all.sample.id)
+UserPost.create(user_id: User.all.sample.id, post_id:Post.all.sample.id)
+PostCategory.create(post_id: Post.all.sample.id, category_id:Category.all.sample.id)
+PostStock.create(stock_id: Stock.all.sample.id, post_id:Post.all.sample.id)
 
 puts "seeded"

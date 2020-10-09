@@ -1,5 +1,6 @@
 class UserPostSerializer < ActiveModel::Serializer
   attributes :id
-  has_one :post
-  has_one :user
+  
+  belongs_to :user
+  belongs to :post
 end

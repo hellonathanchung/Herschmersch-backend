@@ -1,11 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :lists
-  has_many :list_stocks, through: :lists
-  has_many :user_posts
-  has_many :posts, through: :user_posts
-
-
+  has_many :lists, dependent: :destroy
+  has_many :list_stocks, through: :lists, dependent: :destroy
+  has_many :user_posts, dependent: :destroy
+  has_many :posts, through: :user_posts, dependent: :destroy
 
   validates :username, uniqueness: {case_sensitive: false}
 

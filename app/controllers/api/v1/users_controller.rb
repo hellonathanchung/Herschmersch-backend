@@ -1,6 +1,5 @@
 class Api::V1::UsersController < ApplicationController
   def create
-    byebug
     @user = User.create(user_params)
     if @user.valid?
       render json: { user: UserSerializer.new(@user) }, status: :created
@@ -9,13 +8,13 @@ class Api::V1::UsersController < ApplicationController
     end
   end
  
-  def def show
+  def show
     user = User.find_by(id: params[:id])
   end
   
   def index
-  users = User.all
-  render json:users
+    users = User.all
+    render json:users
   end
 
   private
