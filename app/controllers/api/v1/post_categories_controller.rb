@@ -1,2 +1,2 @@
-class PostCategoriesController < ApplicationController
+class Api::V1::PostCategoriesController < ApplicationController
 end

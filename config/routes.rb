@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       resources :posts
       resources :stocks
       resources :users
-      post '/login', to: 'auth#create'
+      post '/login', to: 'users#login'
+      # post '/login', to: 'auth#create'
+      post '/signup', to: 'users#create'
       get '/profile', to: 'users#profile'
     end
   end

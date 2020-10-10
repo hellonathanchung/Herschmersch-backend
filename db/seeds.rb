@@ -16,7 +16,7 @@ Stock.destroy_all
 List.destroy_all
 
 
-User.create(first_name: "Nathan", last_name: "Chung", username:123, password:"123", password_confirmation:"123", imageUrl:"https://media.giphy.com/media/l4Jz3a8jO92crUlWM/giphy.gif")
+User.create(first_name: "Nathan", last_name: "Chung", username:"N810", password:"123", password_confirmation:"123", imageUrl:"https://media.giphy.com/media/l4Jz3a8jO92crUlWM/giphy.gif")
 
 Post.create(title:"5 stocks I like", content:"I really like a, b, c, d, and e")
 Post.create(title:"5 stocks I don't like", content:"I really don't like a, b, c, d, and e")
