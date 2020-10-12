@@ -6,7 +6,5 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: {case_sensitive: false}
 
-  def full_name
-    "#{first_name} #{last_name}"
-  end
+
 end
