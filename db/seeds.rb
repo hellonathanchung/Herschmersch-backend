@@ -17,11 +17,9 @@ Stock.destroy_all
 List.destroy_all
 
 
-User.create(first_name: "Nathan", last_name: "Chung", username:"n810", password:"123", password_confirmation:"123", imageUrl:"https://media.giphy.com/media/l4Jz3a8jO92crUlWM/giphy.gif")
+User.create(username:"n810", password:"123", password_confirmation:"123", imageUrl:"https://media.giphy.com/media/l4Jz3a8jO92crUlWM/giphy.gif")
 5.times do
   User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
     imageUrl: Faker::Avatar.image,
     password: '123',
     password_confirmation: '123'

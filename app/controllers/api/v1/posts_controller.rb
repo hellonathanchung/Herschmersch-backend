@@ -1,25 +1,27 @@
 class Api::V1::PostsController < ApplicationController
 
-def index
-  posts = Post.all
-  render json: posts
-end
+  before_action :authorized, only: [:create]
 
-def create
-  @post = Post.create(post_params)
-  if @post.valid?
-    render json: @post
-
-  else
-    render json: { error: 'failed to add new Post' }, status: :not_acceptable
+  def index
+    posts = Post.all
+    render json: posts
   end
-end
 
-private
+  def create
+    byebug
+    @post = Post.create(post_params)
+    if @post.valid?
+      render json: @post
 
-def post_params
-  params.require(:post).permit(:title, :content, :user_id)
+    else
+      render json: { error: 'failed to add new post' }, status: :not_acceptable
+    end
+  end
 
-end
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :content, :user_id)
+  end
 end
 
