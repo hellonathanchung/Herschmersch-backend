@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       # post '/login', to: 'auth#create'
       post '/signup', to: 'users#create'
       get '/profile', to: 'users#profile'
+      get "/persist", to: "users#persist"
     end
   end
-  get "/persist", to: "users#persist"
 end

@@ -8,7 +8,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create
-    byebug
+    
     @post = Post.create(post_params)
     if @post.valid?
       render json: @post
