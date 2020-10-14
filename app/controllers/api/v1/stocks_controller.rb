@@ -3,4 +3,7 @@ class Api::V1::StocksController < ApplicationController
     stocks = Stock.all
     render json: stocks
   end
+
+  def create 
+  end 
 end
