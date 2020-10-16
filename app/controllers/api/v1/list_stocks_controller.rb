@@ -7,6 +7,7 @@ class Api::V1::ListStocksController < ApplicationController
     stock = Stock.find_or_create_by(symbol:params['symbol'], name:params['name'])
     list_id= params['list_id']
     initial_cost= params['initial_cost']
+    
     @list_stock = ListStock.new(list_id:list_id, stock_id:stock.id, initial_cost:initial_cost )
     if @list_stock.valid?
       @list_stock.save
@@ -19,8 +20,10 @@ class Api::V1::ListStocksController < ApplicationController
   def destroy 
     list_stock = ListStock.find(params[:id])
     list_stock.destroy
-
     render json: {message: 'The stock has been removed!'}
   end 
   
+
+  def create
+  end
 end

@@ -7,8 +7,7 @@ class Api::V1::PostsController < ApplicationController
     render json: posts
   end
 
-  def create
-    
+  def create    
     @post = Post.create(post_params)
     if @post.valid?
       render json: @post
@@ -17,6 +16,26 @@ class Api::V1::PostsController < ApplicationController
       render json: { error: 'failed to add new post' }, status: :not_acceptable
     end
   end
+
+  def update
+    @post = Post.find(params[:id])
+      if @post.update_attributes(params[:post])
+        redirect_to @post
+      else
+        render 'edit'
+      end
+  end
+
+  def destroy
+    
+    post = Post.find(params[:id])
+    post.destroy
+
+    render json: {message: 'The stock has been removed!'}
+
+  end
+  
+  
 
   private
 
