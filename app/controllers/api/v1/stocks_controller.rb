@@ -4,6 +4,5 @@ class Api::V1::StocksController < ApplicationController
     render json: stocks
   end
 
-  def create 
-  end 
+
 end
