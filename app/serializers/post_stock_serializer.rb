@@ -1,5 +1,11 @@
 class PostStockSerializer < ActiveModel::Serializer
   attributes :id
-  has_one :post
-  has_one :stock
+#  belongs_to :post
+#  belongs_to :stock
+
+
+def stockInformation
+  ActiveModel::SerializableResource.new(object.stock, each_serializer: StockSerializer)
+end
+
 end
