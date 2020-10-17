@@ -24,6 +24,5 @@ class Api::V1::ListStocksController < ApplicationController
   end 
   
 
-  def create
-  end
+
 end

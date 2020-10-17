@@ -8,7 +8,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def create    
-    @post = Post.create(post_params)
+    @post = Post.new(post_params)
     if @post.valid?
       render json: @post
 
@@ -18,9 +18,11 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-      if @post.update_attributes(params[:post])
-        redirect_to @post
+    
+    post = Post.find(params[:id])
+      if post.update(post_params)
+        render json: post 
+
       else
         render 'edit'
       end
