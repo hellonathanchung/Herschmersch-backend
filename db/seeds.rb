@@ -30,7 +30,7 @@ end
   30.times do
     Post.create(
       title: Faker::Lorem.sentence,
-      content: Faker::Lorem.paragraph,
+      content: Faker::Lorem.paragraph(sentence_count: 30),
       user_id: User.all.sample.id
     )
   end
