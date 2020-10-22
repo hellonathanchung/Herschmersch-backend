@@ -33,6 +33,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def destroy
+    byebug
     
     post = Post.find(params[:id])
     post.destroy
