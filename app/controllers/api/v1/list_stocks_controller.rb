@@ -14,7 +14,7 @@ class Api::V1::ListStocksController < ApplicationController
       list_stock.save
       render json: list_stock
     else
-      render json: { error: 'failed to add new post' }, status: :not_acceptable
+      render json: { error: 'failed to add stock to your portfolio' }, status: :not_acceptable
     end
   end
 
