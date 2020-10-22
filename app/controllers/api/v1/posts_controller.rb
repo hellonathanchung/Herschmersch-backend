@@ -7,9 +7,14 @@ class Api::V1::PostsController < ApplicationController
     render json: posts
   end
 
-  def create    
+  def create
     @post = Post.new(post_params)
     if @post.valid?
+      @post.save
+      params['stock_ids'].each{
+        |stock_id|
+        PostStock.create(post_id: @post.id, stock_id:stock_id)}
+
       render json: @post
 
     else
