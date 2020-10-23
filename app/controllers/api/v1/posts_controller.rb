@@ -11,14 +11,15 @@ class Api::V1::PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.valid?
       @post.save
-      params['stock_ids'].each{
-        |stock_id|
-        PostStock.create(post_id: @post.id, stock_id:stock_id)}
-
+      if params['stock_ids'].length > 0
+        params['stock_ids'].each{
+          |stock_id|
+          PostStock.create(post_id: @post.id, stock_id:stock_id)}
+        end
       render json: @post
-
+        
     else
-      render json: { error: 'failed to add new post' }, status: :not_acceptable
+      render json: { error: @post.errors.full_messages }, status: :not_acceptable
     end
   end
 
@@ -33,11 +34,10 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def destroy
-    byebug
+
     
     post = Post.find(params[:id])
     post.destroy
-
     render json: {message: 'The stock has been removed!'}
 
   end
