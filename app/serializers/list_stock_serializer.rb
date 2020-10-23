@@ -1,5 +1,5 @@
 class ListStockSerializer < ActiveModel::Serializer
-  attributes :id, :listInformation, :stockInformation
+  attributes :id, :listInformation, :stockInformation, :shares, :initial_cost, :created_at
 
   # belongs_to :list
   # belongs_to :stock
