@@ -23,7 +23,4 @@ class Api::V1::ListStocksController < ApplicationController
     list_stock.destroy
     render json: {message: 'The stock has been removed!'}
   end
-  
-
-
 end
